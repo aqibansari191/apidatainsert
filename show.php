@@ -132,7 +132,8 @@
                     <th>Last Name</th>
                     <th>Phone</th>
                     <th>Email</th>
-                    <th>ACTIOn</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody id="data-table">
@@ -159,9 +160,9 @@
         <td>
             <a href="update.php?id=${student.id}">
                 <button class="update-btn">Update</button>
-            </a>
-             <button class="delete-btn" data-id="${student.id}">Delete</button>  
+            </a>  
         </td>
+        <td> <button class="delete-btn" data-id="${student.id}">Delete</button></td>
     </tr>`;
                     tableBody.innerHTML += row;
                 });
@@ -188,9 +189,8 @@
                                 id: id
                             })
                         });
-
                         let result = await response.json();
-                        alert(result.message);
+                        // alert(result.message);
                         location.reload();
                     } catch (error) {
                         console.error("Delete failed!", error);
